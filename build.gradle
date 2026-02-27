@@ -55,7 +55,7 @@ tasks.named('processResources', ProcessResources) {
     // Use a map to expand properties in a configuration-cache-safe way
     def expandProps = [
         mod_id: mod_id,
-        version: mod_version,
+        mod_version: mod_version,
         mod_name: mod_name,
         mod_description: mod_description,
         mod_author: mod_author,
@@ -70,7 +70,11 @@ tasks.named('processResources', ProcessResources) {
         loader_version: loader_version,
         minecraft_version: minecraft_version,
         java_version: java_version,
-        fabric_api_version: fabric_api_version
+        fabric_api_version: fabric_api_version,
+        architectury_version: architectury_version,
+        cloth_config_version: cloth_config_version,
+        rei_version: rei_version,
+        modmenu_version: modmenu_version
     ]
     inputs.properties(expandProps)
     filesMatching("fabric.mod.json") {

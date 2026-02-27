@@ -25,7 +25,6 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.Monster;
 import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -56,9 +55,9 @@ public class SwordVillagerEntity extends PathAwareEntity {
   }
 
   @Override
-  protected void initDataTracker() {
-    super.initDataTracker();
-    this.dataTracker.startTracking(PROFESSION, SwordVillagerProfession.NONE.ordinal());
+  protected void initDataTracker(DataTracker.Builder builder) {
+    super.initDataTracker(builder);
+    builder.add(PROFESSION, SwordVillagerProfession.NONE.ordinal());
   }
 
   public SwordVillagerProfession getProfession() {
@@ -78,11 +77,10 @@ public class SwordVillagerEntity extends PathAwareEntity {
     this.goalSelector.add(4, new LookAroundGoal(this));
 
     this.targetSelector.add(1, new RevengeGoal(this));
-    this.targetSelector.add(2, new ActiveTargetGoal<LivingEntity>(this, Monster.class, true));
+    this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
   }
 
-  @Override
-  protected void initEquipment(Random random, float difficulty) {
+  public void initializeEquipment(Random random, float difficulty) {
     this.equipStack(EquipmentSlot.MAINHAND, new ItemStack(Items.IRON_SWORD));
   }
 
@@ -113,7 +111,7 @@ public class SwordVillagerEntity extends PathAwareEntity {
 
   private void applyCaptainAura() {
     Box box = this.getBoundingBox().expand(6.0);
-    List<SwordVillagerEntity> allies = this.getEntityWorld().getEntitiesByClass(
+    List<? extends SwordVillagerEntity> allies = this.getEntityWorld().getEntitiesByClass(
         SwordVillagerEntity.class, box, e -> e != this);
     for (SwordVillagerEntity ally : allies) {
       ally.setVelocity(ally.getVelocity().add(0, 0.01, 0));
@@ -166,6 +164,7 @@ public class SwordVillagerEntity extends PathAwareEntity {
     return super.interactMob(player, hand);
   }
 
-  // Remove incorrect Brain overrides for now (Yarn 1.21.11 may use
-  // Datafixer/BrainProvider)
+  public boolean isSwingingHand() {
+    return this.handSwinging;
+  }
 }

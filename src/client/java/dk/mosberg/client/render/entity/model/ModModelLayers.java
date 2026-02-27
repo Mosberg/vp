@@ -1,10 +1,9 @@
-package dk.mosberg.client.registry;
+package dk.mosberg.client.render.entity.model;
 
-import dk.mosberg.VP;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 
 public class ModModelLayers {
   public static final EntityModelLayer SWORD_VILLAGER = new EntityModelLayer(
-      new Identifier(VP.MOD_ID, "sword_villager"), "main");
+      Identifier.of("vp", "sword_villager"), "main");
 }
