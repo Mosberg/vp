@@ -8,6 +8,8 @@
 - **Fabric developer guides:** [Guides and tutorials](https://docs.fabricmc.net/develop/)
 - **Fabric wiki:** [General modding wiki](https://fabricmc.net/wiki/start)
 - **Fabric Loom:** [Build tool documentation](https://docs.fabricmc.net/develop/loom/)
+- **Mappings Dev Overview:** [Mappings Dev Overview](https://mappings.dev/1.21.11/index.html)
+- **Fabric Dependencies:** [List of Fabric libraries](https://linkie.shedaniel.dev/dependencies?loader=fabric&version=1.21.11)
 
 ## Mixins
 

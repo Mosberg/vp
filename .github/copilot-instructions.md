@@ -13,8 +13,13 @@ The workspace includes:
 
 - `remote-links.md` — curated Fabric modding references
 - `skills/skills.json` — custom agent skills
-- `prompts/prompt.md` — workspace prompt
+- `skills/fabric_minecraft_expert/SKILL.md` — Fabric/Minecraft expertise
+- `skills/project_structure_analyst/SKILL.md` — Project structure analysis
+- `skills/web_researcher/SKILL.md` — Web research and information gathering
+- `prompts/fabric.prompt.md` — workspace fabric prompt
+- `prompts/minecraft.prompt.md` — workspace minecraft prompt
 - `agents/custom-agent.json` — Grok‑4.1 agent configuration
+- `agents/grok-4.1.agent.md` — Grok‑4.1 Fabric Modding Agent
 
 ## Copilot’s role
 

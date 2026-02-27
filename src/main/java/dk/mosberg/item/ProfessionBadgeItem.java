@@ -21,8 +21,8 @@ public class ProfessionBadgeItem extends Item {
 
   @Override
   public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-    World world = user.getWorld();
-    if (!world.isClient && entity instanceof SwordVillagerEntity villager) {
+    World world = user.getEntityWorld();
+    if (!world.isClient() && entity instanceof SwordVillagerEntity villager) {
       villager.setProfession(profession);
       if (!user.isCreative()) {
         stack.decrement(1);

@@ -1,3 +1,4 @@
+
 package dk.mosberg.registry;
 
 import dk.mosberg.VP;
@@ -20,7 +21,7 @@ public class ModItems {
       new ProfessionBadgeItem(new Item.Settings(), SwordVillagerProfession.BLADEMASTER));
 
   private static Item register(String name, Item item) {
-    return Registry.register(Registries.ITEM, new Identifier(VP.MOD_ID, name), item);
+    return Registry.register(Registries.ITEM, Identifier.of(VP.MOD_ID, name), item);
   }
 
   public static void init() {

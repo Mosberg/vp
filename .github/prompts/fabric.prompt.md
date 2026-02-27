@@ -1,9 +1,11 @@
 ---
 name: fabric
 description: Use this prompt when working on Fabric-specific modding tasks.
+model: GPT-4.1
+agent: grok-4.1
 ---
 
-This prompt provides Fabric-focused guidance for Minecraft 1.21.11.  
+This prompt provides Fabric-focused guidance for Minecraft 1.21.11 mod development.
 Use it when generating or modifying code involving:
 
 - Fabric API usage

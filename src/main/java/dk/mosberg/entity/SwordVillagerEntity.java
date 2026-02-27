@@ -3,8 +3,10 @@ package dk.mosberg.entity;
 import java.util.List;
 
 import dk.mosberg.profession.SwordVillagerProfession;
+import dk.mosberg.registry.ModBlocks;
 import dk.mosberg.registry.ModProfessions;
 import dk.mosberg.trade.SwordVillagerTrades;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
@@ -30,6 +32,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
@@ -46,15 +49,15 @@ public class SwordVillagerEntity extends PathAwareEntity {
 
   public static DefaultAttributeContainer.Builder createAttributes() {
     return MobEntity.createMobAttributes()
-        .add(EntityAttributes.GENERIC_MAX_HEALTH, 24.0)
-        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.35)
-        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 5.0)
-        .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 24.0);
+        .add(EntityAttributes.MAX_HEALTH, 24.0)
+        .add(EntityAttributes.MOVEMENT_SPEED, 0.35)
+        .add(EntityAttributes.ATTACK_DAMAGE, 5.0)
+        .add(EntityAttributes.FOLLOW_RANGE, 24.0);
   }
 
   @Override
   protected void initDataTracker() {
-    super.initDataTracker();
+    super.initDataTracker(this);
     this.dataTracker.startTracking(PROFESSION, SwordVillagerProfession.NONE.ordinal());
   }
 
@@ -75,7 +78,7 @@ public class SwordVillagerEntity extends PathAwareEntity {
     this.goalSelector.add(4, new LookAroundGoal(this));
 
     this.targetSelector.add(1, new RevengeGoal(this));
-    this.targetSelector.add(2, new ActiveTargetGoal<>(this, Monster.class, true));
+    this.targetSelector.add(2, new ActiveTargetGoal<LivingEntity>(this, Monster.class, true));
   }
 
   @Override
@@ -86,6 +89,12 @@ public class SwordVillagerEntity extends PathAwareEntity {
   @Override
   public void tick() {
     super.tick();
+
+    BlockPos pos = this.getBlockPos();
+    BlockState state = this.getEntityWorld().getBlockState(pos.down());
+    if (state.isOf(ModBlocks.GUARD_POST)) {
+      this.setProfession(SwordVillagerProfession.GUARD);
+    }
 
     if (!this.getEntityWorld().isClient()) {
       ModProfessions.tickJobsiteCheck(this);
@@ -99,6 +108,7 @@ public class SwordVillagerEntity extends PathAwareEntity {
         }
       }
     }
+
   }
 
   private void applyCaptainAura() {
@@ -117,8 +127,8 @@ public class SwordVillagerEntity extends PathAwareEntity {
   }
 
   @Override
-  public boolean tryAttack(Entity target) {
-    boolean hit = super.tryAttack(target);
+  public boolean tryAttack(net.minecraft.server.world.ServerWorld world, Entity target) {
+    boolean hit = super.tryAttack(world, target);
     if (!hit)
       return false;
 
@@ -126,13 +136,13 @@ public class SwordVillagerEntity extends PathAwareEntity {
     DamageSource source = this.getDamageSources().mobAttack(this);
 
     switch (prof) {
-      case GUARD -> target.damage(source, 2.0F);
+      case GUARD -> target.damage(world, source, 2.0F);
       case CAPTAIN -> {
         if (target instanceof LivingEntity living) {
           living.takeKnockback(0.6F, this.getX() - target.getX(), this.getZ() - target.getZ());
         }
       }
-      case BLADEMASTER -> dashStrike(target);
+      case BLADEMASTER -> dashStrike(world, target);
       default -> {
       }
     }
@@ -140,10 +150,11 @@ public class SwordVillagerEntity extends PathAwareEntity {
     return true;
   }
 
-  private void dashStrike(Entity target) {
-    Vec3d dir = target.getPos().subtract(this.getPos()).normalize().multiply(1.2);
+  private void dashStrike(net.minecraft.server.world.ServerWorld world, Entity target) {
+    Vec3d dir = new Vec3d(target.getX() - this.getX(), target.getY() - this.getY(), target.getZ() - this.getZ())
+        .normalize().multiply(1.2);
     this.setVelocity(dir.x, 0.2, dir.z);
-    target.damage(this.getDamageSources().mobAttack(this), 4.0F);
+    target.damage(world, this.getDamageSources().mobAttack(this), 4.0F);
   }
 
   @Override
@@ -154,4 +165,7 @@ public class SwordVillagerEntity extends PathAwareEntity {
     }
     return super.interactMob(player, hand);
   }
+
+  // Remove incorrect Brain overrides for now (Yarn 1.21.11 may use
+  // Datafixer/BrainProvider)
 }

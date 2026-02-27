@@ -8,12 +8,17 @@
     "file": "../copilot-instructions.md"
   },
   "skills": {
-    "file": "../skills/skills.json"
+    "file": [
+      "../skills/skills.json",
+      "../skills/fabric_minecraft_expert/SKILL.md",
+      "../skills/project_structure_analyst/SKILL.md",
+      "../skills/web_researcher/SKILL.md"
+    ]
   },
   "prompts": [
     {
       "name": "workspace",
-      "file": "../prompts/prompt.md"
+      "file": ["../prompts/fabric.prompt.md", "../prompts/minecraft.prompt.md"]
     }
   ],
   "capabilities": {

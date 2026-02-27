@@ -6,5 +6,10 @@
     "tools": ["search", "web", "read", "edit"],
     "description": "Tools used for Fabric modding tasks, including code editing and documentation lookup.",
     "icon": "tools"
+  },
+  "minecraft_modding_tools": {
+    "tools": ["search", "web", "read", "edit"],
+    "description": "Tools used for Minecraft modding tasks, including code editing and documentation lookup.",
+    "icon": "tools"
   }
 }

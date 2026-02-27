@@ -6,6 +6,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 
 public class SwordVillagerTrades {
 
@@ -32,4 +34,13 @@ public class SwordVillagerTrades {
   private static void sendBlademasterTrades(PlayerEntity player) {
     player.sendMessage(Text.literal("BLADEMASTER trades: 20 emeralds -> 1 diamond sword"), false);
   }
+
+  @Override
+  public ActionResult interactMob(PlayerEntity player, Hand hand) {
+    if (!this.getWorld().isClient) {
+      SwordVillagerTrades.applyTrades(this, player);
+    }
+    return ActionResult.SUCCESS;
+  }
+
 }
