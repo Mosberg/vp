@@ -1,0 +1,93 @@
+plugins {
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+  id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+  archivesName = project.archives_base_name
+}
+
+repositories {
+  // Add mod repositories here if needed
+}
+
+loom {
+  splitEnvironmentSourceSets()
+  
+  mods {
+    "${mod_id}" {
+      sourceSet sourceSets.main
+      sourceSet sourceSets.client
+    }
+  }
+}
+
+dependencies {
+  minecraft "com.mojang:minecraft:${minecraft_version}"
+  mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+  modImplementation "net.fabricmc:fabric-loader:${loader_version}"
+  
+  // Fabric API (correct syntax for Loom)
+  modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+}
+
+tasks.named('processResources', ProcessResources) {
+    // Use a map to expand properties in a configuration-cache-safe way
+    def expandProps = [
+        mod_id: mod_id,
+        version: mod_version,
+        mod_name: mod_name,
+        mod_description: mod_description,
+        mod_author: mod_author,
+        mod_homepage: mod_homepage,
+        mod_sources: mod_sources,
+        mod_issues: mod_issues,
+        mod_license: mod_license,
+        mod_icon: mod_icon,
+        mod_entrypoint_main: mod_entrypoint_main,
+        mod_entrypoint_client: mod_entrypoint_client,
+        mod_entrypoint_datagen: mod_entrypoint_datagen,
+        loader_version: loader_version,
+        minecraft_version: minecraft_version,
+        java_version: java_version,
+        fabric_api_version: fabric_api_version
+    ]
+    inputs.properties(expandProps)
+    filesMatching("fabric.mod.json") {
+        expand(expandProps)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+  it.options.release = 21
+}
+
+java {
+  withSourcesJar()
+  
+  sourceCompatibility = JavaVersion.VERSION_21
+  targetCompatibility = JavaVersion.VERSION_21
+}
+
+jar {
+  def archiveBaseNameValue = archiveBaseName.get()
+  from("LICENSE") {
+    rename { "${it}_${archiveBaseNameValue}" }
+  }
+}
+
+publishing {
+  publications {
+    create("mavenJava", MavenPublication) {
+      artifactId = project.archives_base_name
+      from components.java
+    }
+  }
+  
+  repositories {
+    // Add publishing repos here (e.g., Modrinth, CurseForge)
+  }
+}

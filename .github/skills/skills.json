@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "skills": [
+    {
+      "name": "fabric_minecraft_expert",
+      "description": "Provides guidance, code generation, and debugging help for Minecraft Fabric modding targeting 1.21.11 with Yarn mappings and split-source architecture.",
+      "examples": [
+        "Generate a Fabric item registry for 1.21.11 using Yarn names.",
+        "Explain how to use Mixins safely in a split-source project.",
+        "Create a block with custom behavior using Yarn mappings and Fabric events."
+      ]
+    },
+    {
+      "name": "web_researcher",
+      "description": "Performs advanced web search, web fetching, and multi-source synthesis for modding APIs, documentation, and examples.",
+      "examples": [
+        "Find the latest Fabric API changes for 1.21.11.",
+        "Compare different Mixin injection strategies and their trade-offs.",
+        "Fetch examples of Fabric event callbacks for entity interactions."
+      ]
+    },
+    {
+      "name": "project_structure_analyst",
+      "description": "Understands and navigates split-source modding projects with main and client modules.",
+      "examples": [
+        "Determine which module this class should be placed in.",
+        "Explain where client-only rendering code should go.",
+        "Refactor this registry to follow split-source conventions."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "vp:custom/guard_tower",
+  "textures": {
+    "all": "vp:block/guard_tower",
+    "particle": "vp:block/guard_tower",
+    "texture": "vp:block/guard_tower"
+  },
+  "render_type": "solid"
+}

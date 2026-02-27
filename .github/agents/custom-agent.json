@@ -1,0 +1,25 @@
+{
+  "name": "Grok-4.1 Fabric Modding Agent",
+  "model": "grok-4.1",
+  "description": "A custom agent specialized in Minecraft Fabric modding for 1.21.11. Features strong web research, split-source awareness, and best-practice guidance.",
+  "argument-hint": "Describe your Fabric modding task or question.",
+  "icon": "tools",
+  "instructions": {
+    "file": "../copilot-instructions.md"
+  },
+  "skills": {
+    "file": "../skills/skills.json"
+  },
+  "prompts": [
+    {
+      "name": "workspace",
+      "file": "../prompts/prompt.md"
+    }
+  ],
+  "capabilities": {
+    "webSearch": true,
+    "webFetch": true,
+    "webResearch": true,
+    "webUnderstanding": true
+  }
+}

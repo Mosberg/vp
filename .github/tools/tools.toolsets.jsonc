@@ -1,0 +1,10 @@
+{
+  // Define toolsets for this workspace.
+  // Toolsets group tools under a named capability for agents.
+
+  "fabric_modding_tools": {
+    "tools": ["search", "web", "read", "edit"],
+    "description": "Tools used for Fabric modding tasks, including code editing and documentation lookup.",
+    "icon": "tools"
+  }
+}

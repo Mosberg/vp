@@ -1,0 +1,9 @@
+{
+  "parent": "vp:custom/warrior_training_post",
+  "textures": {
+    "all": "vp:block/warrior_training_post",
+    "particle": "vp:block/warrior_training_post",
+    "texture": "vp:block/warrior_training_post"
+  },
+  "render_type": "solid"
+}
