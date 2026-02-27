@@ -10,7 +10,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 
 public class ModEntities {
@@ -18,7 +17,7 @@ public class ModEntities {
       Identifier.of(VP.MOD_ID, "sword_villager"),
       FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, SwordVillagerEntity::new)
           .dimensions(EntityDimensions.fixed(0.6F, 1.95F)).trackRangeBlocks(32)
-          .build(RegistryKey.of(Registries.ENTITY_TYPE, Identifier.of(VP.MOD_ID, "sword_villager"))));
+          .build(null));
 
   public static void init() {
     FabricDefaultAttributeRegistry.register(SWORD_VILLAGER, SwordVillagerEntity.createAttributes());

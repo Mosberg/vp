@@ -6,8 +6,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 
 public class SwordVillagerTrades {
 
@@ -35,12 +33,7 @@ public class SwordVillagerTrades {
     player.sendMessage(Text.literal("BLADEMASTER trades: 20 emeralds -> 1 diamond sword"), false);
   }
 
-  @Override
-  public ActionResult interactMob(PlayerEntity player, Hand hand) {
-    if (!this.getWorld().isClient) {
-      SwordVillagerTrades.applyTrades(this, player);
-    }
-    return ActionResult.SUCCESS;
-  }
+  // Removed invalid interactMob override and getWorld usage. Use openTrades from
+  // entity logic.
 
 }

@@ -57,7 +57,7 @@ public class SwordVillagerEntity extends PathAwareEntity {
 
   @Override
   protected void initDataTracker() {
-    super.initDataTracker(this);
+    super.initDataTracker();
     this.dataTracker.startTracking(PROFESSION, SwordVillagerProfession.NONE.ordinal());
   }
 

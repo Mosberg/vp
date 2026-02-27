@@ -23,10 +23,6 @@
 ## Example Mods
 
 - **Architectury Template:** [Multi-platform template](https://github.com/architectury/architectury-templates)
-- **Quilt Template Mod:** [Quilt mod template](https://github.com/QuiltMC/quilt-template-mod)
-
-## Fabric Docs Example Mod
-
 - **Fabric Example Mod:** [Reference implementation](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest)
 - **Fabric Example Mod - Main:** [Main Reference implementation](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest/src/main)
 - **Fabric Example Mod - Client:** [Client Reference implementation](https://github.com/FabricMC/fabric-docs/tree/main/reference/latest/src/client)
@@ -41,4 +37,7 @@
 
 ## Tutorials & Guides
 
-- **Fabric wiki tutorials:** [Step-by-step modding guides](https://wiki.fabricmc.net/tutorial:start)
+- **ModMenu Wiki:** [Mod menu documentation](https://github.com/TerraformersMC/ModMenu/tree/1.21.11?tab=readme-ov-file)
+- **Cloth Config Wiki:** [Cloth config documentation](https://shedaniel.gitbook.io/cloth-config/)
+- **Roughly Enough Items Wiki:** [REI documentation](https://www.craft.do/s/qj8mHyTVd7qkOZ)
+- **Architectury Wiki:** [Architectury documentation](https://docs.architectury.dev/)

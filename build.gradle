@@ -11,7 +11,18 @@ base {
 }
 
 repositories {
-  // Add mod repositories here if needed
+  maven { 
+    name = "Architectury"
+    url = "https://maven.architectury.dev/" 
+    }
+  maven { 
+    name = "Shedaniel"
+    url = "https://maven.shedaniel.me/" 
+  }
+  maven {
+    name = "Terraformers"
+    url = "https://maven.terraformersmc.com/"
+  }
 }
 
 loom {
@@ -32,6 +43,12 @@ dependencies {
   
   // Fabric API (correct syntax for Loom)
   modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
+
+  // Suggested Mod Dependencies (update versions as needed)
+  modImplementation "dev.architectury:architectury-fabric:${architectury_version}"
+  modImplementation "me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}"
+  modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+  modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
 }
 
 tasks.named('processResources', ProcessResources) {

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import dk.mosberg.VP;
 import dk.mosberg.client.model.SwordVillagerEntityModel;
-import dk.mosberg.client.model.layer.ModModelLayers;
+import dk.mosberg.client.registry.ModModelLayers;
 import dk.mosberg.entity.SwordVillagerEntity;
 import dk.mosberg.profession.SwordVillagerProfession;
 import net.minecraft.client.render.entity.EntityRendererFactory;

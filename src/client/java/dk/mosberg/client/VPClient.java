@@ -3,7 +3,7 @@ package dk.mosberg.client;
 import dk.mosberg.client.hud.HudEvents;
 import dk.mosberg.client.hud.HudManager;
 import dk.mosberg.client.model.SwordVillagerEntityModel;
-import dk.mosberg.client.model.layer.ModModelLayers;
+import dk.mosberg.client.registry.ModModelLayers;
 import dk.mosberg.client.render.SwordVillagerRenderer;
 import dk.mosberg.registry.ModEntities;
 import net.fabricmc.api.ClientModInitializer;

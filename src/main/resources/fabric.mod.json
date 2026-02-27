@@ -16,21 +16,30 @@
   "entrypoints": {
     "main": ["${mod_entrypoint_main}"],
     "client": ["${mod_entrypoint_client}"],
-		"fabric-datagen": [
-			"${mod_entrypoint_datagen}"
-		]
-	},
-	"mixins": [
-		"${mod_id}.mixins.json",
-		{
-			"config": "${mod_id}.client.mixins.json",
-			"environment": "client"
-		}
-	],
-	"depends": {
-		"fabricloader": "${loader_version}",
-		"minecraft": "${minecraft_version}",
-		"java": "${java_version}",
-		"fabric-api": "${fabric_api_version}"
-	}
+    "fabric-datagen": ["${mod_entrypoint_datagen}"]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    {
+      "config": "${mod_id}.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": "${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": "${java_version}",
+    "fabric-api": "${fabric_api_version}"
+  },
+  "suggests": {
+    "architectury": ">=${architectury_version}",
+    "cloth-config": ">=${cloth_config_version}",
+    "roughly-enough-items": ">=${rei_version}",
+    "modmenu": ">=${modmenu_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "update_checker": true
+    }
+  }
 }

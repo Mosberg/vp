@@ -1,4 +1,4 @@
-package dk.mosberg.client.model.layer;
+package dk.mosberg.client.registry;
 
 import dk.mosberg.VP;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
