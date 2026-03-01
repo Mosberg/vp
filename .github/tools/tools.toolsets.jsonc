@@ -4,12 +4,17 @@
 
   "fabric_modding_tools": {
     "tools": ["search", "web", "read", "edit"],
-    "description": "Tools used for Fabric modding tasks, including code editing and documentation lookup.",
+    "description": "Balanced toolset for Fabric modding: workspace search/read, web validation, and direct edits.",
     "icon": "tools"
   },
   "minecraft_modding_tools": {
     "tools": ["search", "web", "read", "edit"],
-    "description": "Tools used for Minecraft modding tasks, including code editing and documentation lookup.",
+    "description": "General Minecraft modding toolset with codebase analysis and editing capabilities.",
+    "icon": "tools"
+  },
+  "fabric_research_tools": {
+    "tools": ["search", "web", "read"],
+    "description": "Read-only validation toolset for API research and mapping verification before code changes.",
     "icon": "tools"
   }
 }

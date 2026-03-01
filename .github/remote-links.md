@@ -41,3 +41,41 @@
 - **Cloth Config Wiki:** [Cloth config documentation](https://shedaniel.gitbook.io/cloth-config/)
 - **Roughly Enough Items Wiki:** [REI documentation](https://www.craft.do/s/qj8mHyTVd7qkOZ)
 - **Architectury Wiki:** [Architectury documentation](https://docs.architectury.dev/)
+
+## Copilot Customization References (VS Code + GitHub)
+
+### VS Code docs
+
+- **Customization Overview:** [Customize AI in VS Code](https://code.visualstudio.com/docs/copilot/customization/overview)
+- **Custom Instructions:** [Use custom instructions in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
+- **Agent Skills:** [Use Agent Skills in VS Code](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
+- **Prompt Files:** [Use prompt files in VS Code](https://code.visualstudio.com/docs/copilot/customization/prompt-files)
+- **Custom Agents:** [Custom agents in VS Code](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
+- **Language Models:** [AI language models in VS Code](https://code.visualstudio.com/docs/copilot/customization/language-models)
+- **MCP Servers:** [Add and manage MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers)
+- **Hooks:** [Agent hooks in VS Code](https://code.visualstudio.com/docs/copilot/customization/hooks)
+- **Agent Tools:** [Use tools with agents](https://code.visualstudio.com/docs/copilot/agents/agent-tools)
+
+### GitHub Copilot docs
+
+- **Set up:** [Setting up GitHub Copilot](https://docs.github.com/en/copilot/how-tos/set-up)
+- **Features:** [GitHub Copilot features](https://docs.github.com/en/copilot/get-started/features)
+- **Agent management:** [About agent management](https://docs.github.com/en/copilot/concepts/agents/coding-agent/agent-management)
+- **Agent skills concept:** [About agent skills](https://docs.github.com/en/copilot/concepts/agents/about-agent-skills)
+- **Copilot Memory:** [About agentic memory](https://docs.github.com/en/copilot/concepts/agents/copilot-memory)
+- **Copilot integrations:** [About Copilot integrations](https://docs.github.com/en/copilot/concepts/tools/about-copilot-integrations)
+- **Custom agents (coding agent):** [About custom agents](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-custom-agents)
+- **Auto model selection:** [About Copilot auto model selection](https://docs.github.com/en/copilot/concepts/auto-model-selection)
+- **Response customization:** [About customizing Copilot responses](https://docs.github.com/en/copilot/concepts/prompting/response-customization)
+- **Chat concepts:** [About Copilot Chat](https://docs.github.com/en/copilot/concepts/chat)
+- **Chat cookbook:** [Copilot Chat Cookbook](https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook)
+- **Customization library:** [Customization library](https://docs.github.com/en/copilot/tutorials/customization-library)
+- **Roll out at scale:** [Roll out Copilot at scale](https://docs.github.com/en/copilot/tutorials/roll-out-at-scale)
+- **Coding agent concept:** [About Copilot coding agent](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-coding-agent)
+- **Hooks concept (coding agent):** [About hooks](https://docs.github.com/en/copilot/concepts/agents/coding-agent/about-hooks)
+- **Personal instructions how-to:** [Add personal custom instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-personal-instructions)
+- **Repository instructions how-to:** [Add repository custom instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions)
+- **Model comparison:** [AI model comparison](https://docs.github.com/en/copilot/reference/ai-models/model-comparison)
+- **Cookbook feedback analysis example:** [Analyze and incorporate user feedback](https://docs.github.com/en/copilot/tutorials/copilot-chat-cookbook/analyze-functionality/analyze-feedback)
+- **Best practices:** [Copilot best practices](https://docs.github.com/en/copilot/get-started/best-practices)
+- **Prompt engineering:** [Prompt engineering](https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering)

@@ -1,17 +1,26 @@
 ---
 name: web_researcher
-description: Performs advanced web search, web fetching, and multi-source synthesis for modding APIs, documentation, and examples.
+description: Validate Fabric/Yarn APIs and mappings with official docs, then synthesize practical implementation guidance for the current workspace.
+argument-hint: Include the API/class/method to validate and the target Minecraft/Fabric versions.
 disable-model-invocation: false
 ---
 
-This skill enables the agent to:
+Use this skill when API accuracy is uncertain or version drift is likely.
+
+## What this skill does
 
 - Validate Yarn names and Fabric API usage
 - Compare Mixin injection strategies
 - Identify changes across Fabric API versions
 - Pull examples from reputable sources and synthesize them
 
-Examples:
+## Source priority
+
+1. `.github/remote-links.md`
+2. Official Fabric/Yarn docs and mappings
+3. Reputable examples only when official references are insufficient
+
+## Example tasks
 
 - Find updated Fabric API methods for 1.21.11
 - Compare `@Inject` vs `@ModifyVariable`

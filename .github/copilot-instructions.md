@@ -1,70 +1,46 @@
 # Copilot instructions for this workspace
 
-## Workspace context
+These instructions are optimized for VS Code Copilot Chat with GPT-5.3-Codex.
 
-This workspace is a Minecraft Fabric mod targeting **Minecraft 1.21.11**, using:
+## Project profile
 
-- Fabric Loader **0.141.3+1.21.11**
-- Yarn **1.21.11+build.4**
-- Fabric API (latest compatible)
-- Split-source architecture: **main** and **client**
+This repository is a Minecraft Fabric mod targeting:
 
-The workspace includes:
+- Minecraft `1.21.11`
+- Fabric Loader `0.141.3+1.21.11`
+- Yarn `1.21.11+build.4`
+- Fabric API compatible with the versions above
 
-- `remote-links.md` — curated Fabric modding references
-- `skills/skills.json` — custom agent skills
-- `skills/fabric_minecraft_expert/SKILL.md` — Fabric/Minecraft expertise
-- `skills/project_structure_analyst/SKILL.md` — Project structure analysis
-- `skills/web_researcher/SKILL.md` — Web research and information gathering
-- `prompts/fabric.prompt.md` — workspace fabric prompt
-- `prompts/minecraft.prompt.md` — workspace minecraft prompt
-- `agents/custom-agent.json` — Grok‑4.1 agent configuration
-- `agents/grok-4.1.agent.md` — Grok‑4.1 Fabric Modding Agent
+Architecture:
 
-## Copilot’s role
+- Shared/server logic in `src/main`
+- Client-only logic in `src/client`
 
-Copilot acts as a **Fabric modding assistant** with:
+## Core coding rules
 
-- Awareness of the main/client split-source layout
-- Knowledge of Yarn mappings for 1.21.11
-- Familiarity with Fabric API patterns, events, registries, and Mixins
-- Ability to perform **advanced web research** when needed
+- Generate code that compiles for the exact versions above.
+- Use Yarn mappings consistently; avoid Mojang mappings unless explicitly requested.
+- Keep code and resources in the correct split-source module.
+- Prefer Fabric event callbacks and registry-driven patterns over hard-coded branching.
+- Prefer data-driven assets (`data/`, tags, loot tables, recipes, advancements) when practical.
+- Use Mixins only when no stable API/event exists; keep injections minimal and resilient.
 
-## Behavior expectations
+## Placement rules
 
-- Generate code that **compiles** under the exact versions listed.
-- Use **Yarn names** consistently.
-- Respect module boundaries:
-  - Client-only logic → **client**
-  - Shared logic → **main**
-- Prefer modern Fabric patterns:
-  - `RegistryKey`-based registration
-  - Fabric event callbacks
-  - Data-driven content (JSON, tags, loot tables, recipes, advancements)
-- Use Mixins only when necessary and keep injections minimal and safe.
+- Place rendering, keybinds, screens, particles, HUD, and other client-only code in `src/client`.
+- Place gameplay logic, registries, data definitions, entities, and shared utilities in `src/main`.
+- Never introduce client classes into main-only codepaths.
 
-## Web research behavior
+## Research and API validation
 
-Copilot may:
+- Use `.github/remote-links.md` as the first source for Fabric/Yarn/API validation.
+- Validate method names/signatures for the target Yarn version before proposing non-trivial API usage.
+- Prefer official Fabric docs and mappings references over forum snippets.
 
-- Validate Yarn names and method signatures
-- Check Fabric API changes for 1.21.11
-- Compare Mixin injection strategies
-- Pull examples from reputable sources
+## Response expectations
 
-When referencing external information, **use `remote-links.md` as the primary source**, supplementing only when needed.
-
-## Output style
-
-- Provide concise, correct, version-accurate code.
-- Include all required imports.
-- Avoid deprecated or unstable APIs.
-- Ask clarifying questions when needed.
-- Explain reasoning when it improves understanding.
-
-## Project conventions
-
-- Avoid Mojang mappings unless explicitly requested.
-- Keep code idiomatic to Fabric and Yarn.
-- Follow the existing package structure.
-- Prefer event-driven and data-driven designs over hard-coded logic.
+- Keep responses concise and implementation-focused.
+- Include required imports in generated Java code.
+- Avoid deprecated/unstable APIs when a stable alternative exists.
+- Ask for clarification only when a requirement is genuinely ambiguous.
+- For non-obvious decisions, include a short rationale.

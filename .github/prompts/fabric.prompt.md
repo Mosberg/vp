@@ -1,8 +1,9 @@
 ---
 name: fabric
-description: Use this prompt when working on Fabric-specific modding tasks.
-model: GPT-4.1
-agent: grok-4.1
+description: Fabric-focused implementation prompt for Minecraft 1.21.11 using Yarn mappings and split-source rules.
+model: GPT-5.3-Codex (copilot)
+agent: gpt-5.3-codex-fabric
+argument-hint: Describe the Fabric task and any specific classes/resources to edit.
 ---
 
 This prompt provides Fabric-focused guidance for Minecraft 1.21.11 mod development.
@@ -15,3 +16,5 @@ Use it when generating or modifying code involving:
 - Client-only or shared logic in a split-source project
 
 Include clear examples, imports, and version-accurate APIs.
+
+If API naming is uncertain, validate against `.github/remote-links.md` before finalizing changes.

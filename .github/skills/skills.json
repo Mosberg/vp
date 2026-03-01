@@ -3,7 +3,7 @@
   "skills": [
     {
       "name": "fabric_minecraft_expert",
-      "description": "Provides guidance, code generation, and debugging help for Minecraft Fabric modding targeting 1.21.11 with Yarn mappings and split-source architecture.",
+      "description": "Use for implementing or fixing Fabric 1.21.11 gameplay code with correct Yarn names, registries, callbacks, and data-driven assets.",
       "examples": [
         "Generate a Fabric item registry for 1.21.11 using Yarn names.",
         "Explain how to use Mixins safely in a split-source project.",
@@ -12,7 +12,7 @@
     },
     {
       "name": "web_researcher",
-      "description": "Performs advanced web search, web fetching, and multi-source synthesis for modding APIs, documentation, and examples.",
+      "description": "Use when APIs, mappings, or signatures must be validated against official docs before implementation.",
       "examples": [
         "Find the latest Fabric API changes for 1.21.11.",
         "Compare different Mixin injection strategies and their trade-offs.",
@@ -21,7 +21,7 @@
     },
     {
       "name": "project_structure_analyst",
-      "description": "Understands and navigates split-source modding projects with main and client modules.",
+      "description": "Use when deciding module placement, package layout, or refactors across src/main and src/client.",
       "examples": [
         "Determine which module this class should be placed in.",
         "Explain where client-only rendering code should go.",

@@ -1,8 +1,9 @@
 ---
 name: minecraft
 description: This prompt is used to assist with Minecraft Fabric mod development, providing guidance on code generation, project structure, and web research for Minecraft 1.21.11 using Fabric API.
-model: GPT-4.1
-agent: grok-4.1
+model: GPT-5.3-Codex (copilot)
+agent: gpt-5.3-codex-fabric
+argument-hint: Describe your Fabric modding task, expected behavior, and constraints.
 ---
 
 # Workspace prompt for Copilot Chat
@@ -40,3 +41,5 @@ This workspace is a Minecraft Fabric modding project targeting **Minecraft 1.21.
 - Shared logic belongs in the main module
 - Avoid Mojang mappings unless explicitly requested
 - Follow the existing package structure and coding style
+
+When uncertain, prefer the simplest implementation that compiles and respects the split-source architecture.
